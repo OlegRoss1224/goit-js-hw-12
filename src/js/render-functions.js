@@ -10,7 +10,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function createGallery(images, galleryItem, isAppend = false) {
+export function createGallery(images, gallery, isAppend = false) {
   const markup = images
     .map(
       ({
@@ -41,9 +41,9 @@ export function createGallery(images, galleryItem, isAppend = false) {
     )
     .join('');
   if (isAppend) {
-    galleryItem.insertAdjacentHTML('beforeend', markup);
+    gallery.insertAdjacentHTML('beforeend', markup);
   } else {
-    galleryItem.innerHTML = markup;
+    gallery.innerHTML = markup;
   }
   lightbox.refresh();
 }
